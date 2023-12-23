@@ -1,0 +1,5 @@
+/node/.idea
+/node/mongoose/node_modules
+/node/express/node_modules
+/node/express/13_ExpressGenerator/node_modules
+/node/express/Bookkeeping/node_modules
