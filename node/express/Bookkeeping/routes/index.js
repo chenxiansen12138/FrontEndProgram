@@ -1,22 +1,21 @@
 var express = require('express');
 var router = express.Router();
-//导入lowdb
-// const adapter = new FileSync(__dirname + '/../data/db.json');
 const AccountModel = require('../model/AccountModel');
+const checkLoginMiddleWare = require('../middleware/CheckLoginMiddleWare')
 
 //获取db对象
 // const db = lowdb(adapter);
 //记账本的列表
-    router.get('/account', function (req, res, next) {
+    router.get('/account', checkLoginMiddleWare,function (req, res, next) {
         AccountModel.find().then((data)=>{
             res.render("list", {accounts: data});
         })
     });
 
-    router.get('/create', function (req, res, next) {
+    router.get('/create', checkLoginMiddleWare,function (req, res, next) {
         res.render("create");
     });
-    router.post('/account', (req, res, next) => {
+    router.post('/account', checkLoginMiddleWare,(req, res, next) => {
         //写入
         AccountModel.create({
             ...req.body
@@ -30,7 +29,7 @@ const AccountModel = require('../model/AccountModel');
         res.render("success", {msg: '添加成功啦～～～', url: '/BookKeeping/account'});
     });
 //删除账单
-    router.get('/delete/:id',(req,res)=>{
+    router.get('/delete/:id',checkLoginMiddleWare,(req,res)=>{
         //获取参数
         let id = req.params.id;
         //删除
@@ -39,6 +38,11 @@ const AccountModel = require('../model/AccountModel');
             res.render("list", {accounts: data});
         })
     });
+    router.get('/logout',(req, res)=>{
+        req.session.destroy(()=>{
+            res.render("success",{msg: '退出成功',url: '/BookKeeping/login'});
+        })
+    })
 
 
 module.exports = router;

@@ -10,11 +10,11 @@ app.use(session({
     saveUninitialized: false, //是否为每次请求都设置一个cookie来保存session的id
     resave: true,             //是否在每次请求时都保存session
     store: MongoStore.create({
-        mongoUrl: 'mongodb://192.168.10.46:27017'
+        mongoUrl: 'mongodb://192.168.10.46:27017/test'
     }),
     cookie: {
         httpOnly: true,    //开启后通过js无法获取cookie
-        maxAge: 1000 * 60  //控制sessionId过期时间
+        maxAge: 1000 * 60 *5 //控制sessionId过期时间
     }
 }))
 //首页路由
