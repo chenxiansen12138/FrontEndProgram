@@ -1,9 +1,12 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 const AccountModel = require('../model/AccountModel');
+const  token_check = require('../middleware/TokenCheckMiddleWare');
+
 
 //记账本的列表
-    router.get('/account', function (req, res, next) {
+    router.get('/account', token_check,function (req, res, next) {
+
         AccountModel.find().then((data)=>{
             res.json({
                 code: '0000',

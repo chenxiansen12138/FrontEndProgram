@@ -6,9 +6,12 @@ const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const apiRouter = require('./api/Account');
+const loginRouter = require('./api/users')
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const {DBHOST, DBPORT} = require("./data/config/DBConfig");
+const {log} = require("debug");
 
 const app = express();
 app.use(session({
@@ -36,7 +39,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/BookKeeping', indexRouter);
 app.use('/BookKeeping',usersRouter);
-
+app.use('/api',apiRouter);
+app.use('/api',loginRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
