@@ -3,3 +3,5 @@
 /node/express/node_modules
 /node/express/13_ExpressGenerator/node_modules
 /node/express/Bookkeeping/node_modules
+
+.idea
