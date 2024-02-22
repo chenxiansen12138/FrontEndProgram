@@ -1,0 +1,51 @@
+// tsc xxx.ts -w 会自动监视文件的变化, 一旦文件发生变化, 就会自动编译
+tsc xxx.ts -w
+
+// 如果想要编译整个项目, 可以使用tsc命令, 会编译所有的ts文件, 但是不会监视文件的变化, 一旦文件发生变化, 就需要重新执行, 也可以使用tsc -w, 会自动监视文件的变化, 一旦文件发生变化, 就会自动编译.
+// 使用tsc命令的前提是, 需要在项目中添加tsconfig.json文件, 通过这个文件来配置编译选项.
+tsc
+// 也可以在tsconfig.json中配置, 一旦文件发生变化, 就会自动编译.
+{
+// 编译选项, 一般不需要配置, 默认就可以.
+  "compilerOptions": {
+    // 编译后的文件存放的文件夹, 默认是./dist, 也可以自定义.
+    "outDir": "./dist",
+    // 是否生成map文件, 默认是false, 一般开发环境需要, 生产环境不需要.
+    "noImplicitAny": true,
+    // 是否检查类型, 默认是false, 一般开发环境需要, 生产环境不需要.
+    "module": "commonjs",
+    // 编译目标, 默认是es3, 一般是es5.
+    "target": "es5",
+    // 是否生成map文件, 默认是false, 一般开发环境需要, 生产环境不需要.
+    "sourceMap": true
+    // 判断代码运行时指定的库
+    "lib": ["es2015", "dom"]
+
+    // 是否允许编译js文件, 默认是false, 一般不需要.
+    "allowJs": true
+
+    // 是否检查类型, 默认是false, 一般开发环境需要, 生产环境不需要.
+    "checkJs": true
+
+    // 当编译时出现错误时, 是否继续编译, 默认是false, 一般不需要.
+    "noEmitOnError": true
+
+    // 不允许隐式的any类型, 默认是false, 一般开发环境需要, 生产环境不需要.
+    "noImplicitAny": true
+
+
+    // 不允许不明类型的this, 默认是false, 一般开发环境需要, 生产环境不需要.
+    "noImplicitThis": true
+
+    // 严格模式, 默认是false, 一般开发环境需要, 生产环境不需要.
+    "strict": true
+  },
+  // include表示需要编译的文件, exclude表示不需要编译的文件, 一般不需要配置exclude, 因为默认会排除node_modules文件夹, 如果需要排除其他文件夹, 可以在exclude中添加.
+  // 语法: **表示任意文件夹, *表示任意文件, 例如: src/**/*表示src文件夹下的任意文件夹下的任意文件.
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
