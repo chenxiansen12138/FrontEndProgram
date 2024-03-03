@@ -22,6 +22,18 @@
     <!--    <button @click="show">显示</button>-->
     <hr>
     <Hooks/>
+    <hr>
+    <Router/>
+  </div>
+  <div class="pinia">
+    <h1>Vue3.0中的Pinia</h1>
+    <Count/>
+    <hr>
+    <LoveTalk />
+  </div>
+  <div class="communication">
+    <h1>Vue3.0中的组件通信</h1>
+    <Communication />
   </div>
 </template>
 
@@ -31,6 +43,20 @@
   box-shadow: 0 0 10px;
   border-radius: 10px;
   padding: 20px;
+}
+
+.pinia {
+  background-color: seashell;
+  box-shadow: 0 0 10px;
+  border-radius: 10px;
+  padding: 20px;
+}
+.communication{
+  background: #afd9ee;
+  box-shadow: 0 0 10px;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 50px;
 }
 </style>
 
@@ -46,14 +72,18 @@ import RefTag from './components/08_RefTag.vue'
 import Props from './components/09_Props.vue'
 import LifeCycle from "@/components/10_LifeCycle.vue"
 import Hooks from "@/components/11_Hooks.vue"
+import Router from "@/components/12_Router.vue"
+import Count from "@/components/13_pinia/Count.vue";
+import Communication from "@/components/14_ComponentCommunication.vue"
 
 import {type stars} from '@/types';
 import {reactive, ref} from "vue";
+import LoveTalk from "@/components/13_pinia/LoveTalk.vue";
 
 let isShow = ref(true);
-let show = () => {
-  isShow.value = false;
-}
+// let show = () => {
+//   isShow.value = false;
+// }
 
 let starList = reactive<stars>([
   {id: '1', name: '白石茉莉奈', age: 38},
