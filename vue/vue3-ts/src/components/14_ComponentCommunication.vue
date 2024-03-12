@@ -4,6 +4,9 @@
 
 <template>
   <div class="container-fluid wraper">
+    <h1 class="title">
+      Vue3 组件间通信
+    </h1>
     <hr>
     <div class="row">
       <div class="col-xs-3 col-md-3 col-lg-3 col-xl-3">
@@ -22,7 +25,7 @@
       <div class="col-xs-9 col-md-9 col-lg-9 col-xl-9">
         <div class="panel-body">
           <!-- 占位一个展示区 -->
-          <RouterView />
+          <router-view name="communication"></router-view>
         </div>
       </div>
     </div>

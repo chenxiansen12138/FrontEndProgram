@@ -32,9 +32,12 @@
     <LoveTalk />
   </div>
   <div class="communication">
-    <h1>Vue3.0中的组件通信</h1>
     <Communication />
   </div>
+  <div>
+    <Shallow />
+  </div>
+
 </template>
 
 <style scoped>
@@ -52,11 +55,12 @@
   padding: 20px;
 }
 .communication{
-  background: #afd9ee;
   box-shadow: 0 0 10px;
   border-radius: 10px;
   padding: 20px;
   margin-top: 50px;
+  width: auto;
+  height: 800px;
 }
 </style>
 
@@ -79,11 +83,13 @@ import Communication from "@/components/14_ComponentCommunication.vue"
 import {type stars} from '@/types';
 import {reactive, ref} from "vue";
 import LoveTalk from "@/components/13_pinia/LoveTalk.vue";
+import Shallow from "@/components/15_Shallow.vue";
 
 let isShow = ref(true);
 // let show = () => {
 //   isShow.value = false;
 // }
+
 
 let starList = reactive<stars>([
   {id: '1', name: '白石茉莉奈', age: 38},

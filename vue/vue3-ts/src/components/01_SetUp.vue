@@ -1,4 +1,4 @@
-<template>
+ <template>
   <div class="person">
     <h1>Vue3.0的setup函数</h1>
     <h2>名字:{{ name }}</h2>

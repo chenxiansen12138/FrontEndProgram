@@ -10,7 +10,7 @@ import {RouterView,RouterLink} from "vue-router";
     <RouterLink :to="{path:'/star3'}" active-class="active">弥生美月</RouterLink>
   </div>
   <div>
-    <RouterView></RouterView>
+    <RouterView name="starRoute"></RouterView>
   </div>
 </template>
 
