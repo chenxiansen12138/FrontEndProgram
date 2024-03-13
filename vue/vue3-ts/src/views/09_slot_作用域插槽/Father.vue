@@ -5,7 +5,7 @@
       <Game>
         <template v-slot="params">
           <ul>
-            <li v-for="y in params.youxi" :key="y.id">
+            <li v-for="y in params" :key="y.id">
               {{ y.name }}
             </li>
           </ul>

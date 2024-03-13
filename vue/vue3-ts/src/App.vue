@@ -37,7 +37,12 @@
   <div>
     <Shallow />
   </div>
-
+  <div>
+    <ToRaw />
+  </div>
+  <div>
+    <CustomRef />
+  </div>
 </template>
 
 <style scoped>
@@ -84,6 +89,8 @@ import {type stars} from '@/types';
 import {reactive, ref} from "vue";
 import LoveTalk from "@/components/13_pinia/LoveTalk.vue";
 import Shallow from "@/components/15_Shallow.vue";
+import ToRaw from "@/components/16_ToRawAndMarkRow.vue"
+import CustomRef from "@/components/17_CustomRef.vue"
 
 let isShow = ref(true);
 // let show = () => {
